@@ -53,6 +53,12 @@ def score(items, question):
             if e.code in (429, 500, 502, 503, 529) and attempt < 2:
                 import time; time.sleep(2 * (attempt + 1)); continue
             raise RuntimeError(f'gate HTTP {e.code}: {e.read()[:300].decode(errors="replace")}')
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            if attempt < 2:
+                import time; time.sleep(2 * (attempt + 1)); continue
+            raise RuntimeError(f'gate connection failed after retries (DECISION_GATE_URL={URL}): {e}')
+        except (KeyError, json.JSONDecodeError) as e:
+            raise RuntimeError(f'gate got an unexpected response shape: {e!r}')
 
 def main():
     ap = argparse.ArgumentParser()
@@ -72,7 +78,11 @@ def main():
             print(json.dumps({'id': i, 'score': p, 'pass': p >= a.threshold}))
         return
     text = open(a.file, encoding='utf8').read() if a.file else sys.stdin.read()
-    p = score({'T000': text}, a.question)['T000']
+    try:
+        p = score({'T000': text}, a.question)['T000']
+    except RuntimeError as e:
+        print(f'decision-gate: {e}', file=sys.stderr)
+        sys.exit(2)
     print(json.dumps({'score': p, 'pass': p >= a.threshold, 'threshold': a.threshold}))
     sys.exit(0 if p >= a.threshold else 1)
 

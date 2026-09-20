@@ -10,8 +10,9 @@ items get read into the agent's context.
 
 ## Measured before/after (live research run, 2026-09-20)
 
-Source: [jev-agent-hacks.md §4](https://github.com/nedzen) (gate report from a
-real multi-source research session).
+Source: gate report from a real multi-source research session (2026-09-20,
+277 gate judgments / 97 passed, ~85K tokens kept out of context, ~$0.007 —
+see REPORT.md §verification for the reproduced numbers).
 
 | Metric | Without gate | With gate |
 |---|---|---|

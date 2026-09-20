@@ -55,3 +55,18 @@ laya p50 0.028 s vs Jev 0.468 s (jev_report.md).
   numbers come from the local research run (jev-agent-hacks.md §2+§4).
 - `usedCost` in PR 4 estimates with SEMGREP_PRICE_PER_M (default 0.042/MTok)
   when the API doesn't report usage.cost.
+
+## Local end-to-end verification (HQ, pre-push — 2026-09-20)
+
+All checks run against scripts/ in this repo, real API:
+
+1. Batch separation (3-line TSV): 0.92 / 0.02 / 0.90 — perfect separation ✓
+2. Single mode pass case: 0.70 → exit 0 ✓
+3. Bad endpoint: clean message + exit 2 (fixed: raw traceback on URLError →
+   readable RuntimeError with URL echo + exit code 2; retry-with-backoff on
+   connection errors; unexpected response shape also surfaced cleanly) ✓
+4. flatten_md.py output byte-identical to the reference version ✓
+5. Combo workflow (flatten | gate on a 333-line transcript): 0.97 pass at
+   threshold 0.7, exit 0 ✓
+6. SKILL.md paths reference scripts/gate.py correctly ✓
+7. README source link fixed (was a dead github.com/nedzen link)
