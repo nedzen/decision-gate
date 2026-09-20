@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.cands*
+test*.tsv
+.DS_Store
