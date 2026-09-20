@@ -22,18 +22,20 @@
 
 ## Test result (real API, OpenRouter decisions, typesafe/jev-1.13)
 
-3-line TSV batch, question: "this text discusses a specific decision-model clone,
-its architecture, or benchmark numbers":
+Re-verified 2026-09-20 (fresh run this session). 3-line TSV batch, question:
+"this text discusses a specific model clone, its architecture, or benchmarks":
 
 ```
-{"id": "t1", "score": 0.98, "pass": true}    # laya/MLX clone + benchmarks
-{"id": "t2", "score": 0.01, "pass": false}   # sourdough recipe
-{"id": "t3", "score": 0.94, "pass": true}    # decision-model benchmark numbers
+{"id": "c1", "score": 0.98, "pass": true}    # laya/MLX clone + accuracy benchmarks
+{"id": "c2", "score": 0.01, "pass": false}   # baking recipe
+{"id": "c3", "score": 0.13, "pass": false}   # describes gating pattern, no clone/benchmarks
 EXIT=0
 ```
 
-Single-mode stdin check: `{"score": 0.98, "pass": true, "threshold": 0.5}` —
-perfect separation, scriptable exit codes work.
+Single-mode stdin checks (same question): clone text → `{"score": 0.97,
+"pass": true, "threshold": 0.5}` EXIT=0; pasta recipe → `{"score": 0,
+"pass": false, "threshold": 0.5}` EXIT=1. Perfect separation; scriptable exit
+codes work.
 
 ## Local (laya/oMLX) endpoint verdict
 
