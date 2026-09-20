@@ -1,5 +1,8 @@
 # decision-gate
 
+
+<p align="center"><img src="docs/demo.gif" alt="decision-gate demo" width="700"></p>
+
 **Drop-in agent skill: gate search/page ingestion through a cheap typed-decision
 model (Jev) BEFORE reading — keep agent context healthy.**
 

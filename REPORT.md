@@ -70,3 +70,8 @@ All checks run against scripts/ in this repo, real API:
    threshold 0.7, exit 0 ✓
 6. SKILL.md paths reference scripts/gate.py correctly ✓
 7. README source link fixed (was a dead github.com/nedzen link)
+
+## Demo GIF (vhs → asciinema+agg fallback)
+vhs 0.12.0 completes recording but silently writes no output on this machine
+(ttyd 1.7.7 + ffmpeg 9/7, incl. real-PTY runs — README-consistent tape).
+Fallback: asciinema rec + agg --theme 136 → docs/demo.gif. Verified 354KB GIF.
