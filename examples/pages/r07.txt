@@ -1,0 +1,1 @@
+classifier.dev smart tier: re-asks only what Jev was unsure about. +2.5 points on AG News (+18.4 on unsure items), +1.0 on emotion (+4.9 on unsure). Jev alone: AG News 87.5% (65.3% unsure); smart tier 90.0% (83.7% unsure). CLI: classify relevant,"not relevant" --review 0.7 < snippets.txt — only the unsure ones re-asked. 1000 lines/request.

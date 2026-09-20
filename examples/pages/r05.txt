@@ -1,0 +1,1 @@
+Maximem — a map of decision seams: "can you write down every possible answer before seeing the input, and does code do something different for each one? If the answer is a sentence, it is not a seam." Warns most disappointment comes from pointing Jev at whole use cases instead of individual seams. 11 seams mapped.

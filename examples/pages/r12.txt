@@ -1,0 +1,1 @@
+mizchi/jev-lint: ast-grep extracts code fragments; Jev scores natural-language rules in batch. 1,220 questions confirmed through one request. 9,800 lines, 23 rules, 1,950 subjects in 7.7s for ~$0.055; per-diff check ~$0.00015. --group auto estimates cheaper batching; --record + replay re-scores at new thresholds.

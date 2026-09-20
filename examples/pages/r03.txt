@@ -1,0 +1,1 @@
+browser-use/jev-ultrafast: indexing the live page into a dynamic action space, then asking Jev to pick both the operation and the target element. A small LLM is invoked only for TYPE_TEXT operations. Everything else — click, scroll, select — never touches a generative model.

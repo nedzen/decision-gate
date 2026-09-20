@@ -1,0 +1,1 @@
+Pydantic AI TypeSafeModel: each output_type field becomes one Jev question; the same agent definition runs on an LLM by changing the model string. Guidance: "the prompt is only what is being judged, and the question belongs on the output type."
